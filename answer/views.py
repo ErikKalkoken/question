@@ -1,10 +1,5 @@
-from email import message
 from django.views.generic.list import ListView
-from multiprocessing import context
-from unicodedata import category
-from venv import create
 from django.shortcuts import get_object_or_404, render, redirect, get_list_or_404
-from requests import post
 from .models import FeedBack, Notification, Question, Answer
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -14,7 +9,6 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from jmespath import search
 from django.core.paginator import Paginator
 
 def home(request):
