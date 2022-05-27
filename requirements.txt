@@ -1,0 +1,5 @@
+Django
+crispy-bootstrap5
+django-bootstrap-v5
+django-ckeditor
+django-crispy-forms
