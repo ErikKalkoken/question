@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singn-Up |</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+    <link rel="icon" type="image/gif/png" href="https://scontent-los2-1.xx.fbcdn.net/v/t39.30808-6/279021509_106475622055915_3365511462762453027_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeF8looiQYnRjQL8km6KDFmvKMCD36IoQ7EowIPfoihDsTb2Leyc2DWI-NEPYPFsoET6_owXd23LJ0JOVL4sOe0U&_nc_ohc=VqDL00vHGrMAX-_130q&tn=gCFUNqsGjqNSsOGf&_nc_zt=23&_nc_ht=scontent-los2-1.xx&oh=00_AT9-DLiVHnss35xql6TfkUBnhOXAMEgujp_2N1IaFZhIQA&oe=62723418">
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-primary bg-primary">
+        <div class="container">
+            <h3 style="color: white;">question</h3>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center"
+        style="color: dodgerblue; font-size: 30px; font-family: Arial, Helvetica, sans-serif;"
+        >
+        Create Account  
+        </div>
+        <br>
+        <div>
+            <style>
+                h5{
+                    color: red;
+                }
+                body {
+                    background-color: white;
+                }
+            </style>
+        </div>
+        {% for message in messages %}
+        <h5>{{ message }}</h5>
+        {% endfor %}
+    </div>        
+    </div>
+<br>
+<br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="{% url 'register' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label style="font-family: Arial, Helvetica, sans-serif; color: dodgerblue;">Username</label>
+                        <input type="text" class="form-control" name="username">
+                    </div>
+
+                    <br>
+                    <div class="form-group">
+                        <label style="font-family: Arial, Helvetica, sans-serif; color: dodgerblue;">First Name</label>
+                        <input type="text" class="form-control" name="first_name">
+                    </div>
+
+                    <br>
+                    <div class="form-group">
+                        <label style="font-family: Arial, Helvetica, sans-serif; color: dodgerblue;">Last Name</label>
+                        <input type="text" class="form-control" name="last_name">
+                    </div>
+                    
+                    <br>
+                    <div class="form-group">
+                        <label style="font-family: Arial, Helvetica, sans-serif; color: dodgerblue;">Enter Your Email</label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+                    
+                    <br>
+                    <div class="form-group">
+                        <label style="font-family: Arial, Helvetica, sans-serif; color: dodgerblue;">Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+
+                    <br>
+                    <div class="form-group">
+                        <label style="font-family: Arial, Helvetica, sans-serif; color: dodgerblue;">Repeat Password</label>
+                        <input type="password" class="form-control" name="password2">
+                    </div>
+
+                    <br>
+                    <a href="{% url 'login' %}" style="text-decoration: none; font-family: Arial, Helvetica, sans-serif; color: dodgerblue;">Already Have An Account</a>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-warning">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</body>
+</html>
