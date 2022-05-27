@@ -73,10 +73,11 @@ class My_Answer(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        form.instance.post_id = self.kwargs['pk']
+        form.instance.post_id = self.kwargs['pk']        
+        result = super().form_valid(form)
         question_author = form.instance.post.user
         Notification.objects.create(user=question_author, message="someone answer your question!", url=form.instance)
-        return super (My_Answer, self).form_valid(form)
+        return result
 
 class NotificationListView(ListView):
     model = Notification
